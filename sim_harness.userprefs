@@ -1,0 +1,29 @@
+﻿<Properties StartupItem="sim_tests/sim_tests.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="sim_tests/Test.cs">
+    <Files>
+      <File FileName="sim_tests/Test.cs" Line="13" Column="37" />
+      <File FileName="time_frame/time_frame/TimeFrame.cs" Line="10" Column="15" />
+      <File FileName="time_frame/time_frame/TimeInterface.cs" Line="11" Column="8" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="sim_tests" expanded="True" selected="True">
+            <Node name="References" expanded="True">
+              <Node name="From Packages" expanded="True" />
+            </Node>
+            <Node name="Packages" expanded="True" />
+          </Node>
+          <Node name="time_frame" expanded="True">
+            <Node name="Packages" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,24 @@
+﻿<Properties StartupItem="time_frame/time_frame.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="time_frame/TimeFrame.cs">
+    <Files>
+      <File FileName="time_frame/TimeFrame.cs" Line="22" Column="18" />
+      <File FileName="time_frame/TimeInterface.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="time_frame" expanded="True">
+            <Node name="Packages" expanded="True" />
+            <Node name="Properties" expanded="True" />
+            <Node name="TimeFrame.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
