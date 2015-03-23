@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sim_tests", "sim_tests\sim_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "time_frame", "time_frame\time_frame\time_frame.csproj", "{E9C8A0A8-16D9-4FEF-AB45-04E9EE9A579E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_commands", "user_commands\user_commands.csproj", "{26BD9021-9484-46B7-B044-EAE8B60E445D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
