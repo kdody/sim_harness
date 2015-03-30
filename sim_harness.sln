@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "time_frame", "time_frame\ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_commands", "user_commands\user_commands.csproj", "{26BD9021-9484-46B7-B044-EAE8B60E445D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "device_commands", "device_commands\device_commands.csproj", "{3FA34053-E64F-4AF5-AB24-8BB7FF660257}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26BD9021-9484-46B7-B044-EAE8B60E445D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FA34053-E64F-4AF5-AB24-8BB7FF660257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FA34053-E64F-4AF5-AB24-8BB7FF660257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FA34053-E64F-4AF5-AB24-8BB7FF660257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FA34053-E64F-4AF5-AB24-8BB7FF660257}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
