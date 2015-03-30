@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sim_weather", "sim_weather\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sim_weather", "sim_weather\sim_weather.csproj", "{6CE7D676-2363-46E5-9E2D-A656BEA0F4C2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sim_Harness_GUI", "Sim_Harness_GUI\Sim_Harness_GUI.csproj", "{B4104772-C10F-45D8-B238-1BC155C6C943}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4104772-C10F-45D8-B238-1BC155C6C943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4104772-C10F-45D8-B238-1BC155C6C943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4104772-C10F-45D8-B238-1BC155C6C943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4104772-C10F-45D8-B238-1BC155C6C943}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E9C8A0A8-16D9-4FEF-AB45-04E9EE9A579E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E9C8A0A8-16D9-4FEF-AB45-04E9EE9A579E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9C8A0A8-16D9-4FEF-AB45-04E9EE9A579E}.Release|Any CPU.ActiveCfg = Release|Any CPU
