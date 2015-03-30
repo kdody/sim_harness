@@ -40,25 +40,25 @@ public class TemperatureSetPoint : IComparable
  */
 public class LinearWeather : IWeather
 {
-	protected TimeFrame _frame;
+	public TimeFrame Frame { get; set; }
 	protected List<TemperatureSetPoint> _temps;
 
 	public LinearWeather()
 	{
-		_frame = new TimeFrame();
+		Frame = new TimeFrame();
 		_temps = new List<TemperatureSetPoint>();
 	}
 
 	public LinearWeather(TimeFrame frame)
 	{
-		_frame = frame;
+		Frame = frame;
 		_temps = new List<TemperatureSetPoint>();
 	}
 
-	public LinearWeather(TimeFrame frame, List<TemperatureSetPoint> temps)
+	public LinearWeather(TimeFrame frame, IEnumerable<TemperatureSetPoint> temps)
+		:this(frame)
 	{
-		_frame = frame;
-		_temps = temps;
+		AddRange(temps);
 		_temps.Sort();
 	}
 
@@ -82,6 +82,16 @@ public class LinearWeather : IWeather
 	}
 
 	/**
+	 * Adds a list of setpoints to the Weather simulation.
+	 * \param[in] pts List of TemperatureSetPoints to add to the simulation
+	 */
+	public void AddRange(IEnumerable<TemperatureSetPoint> pts)
+	{
+		_temps.AddRange(pts);
+		_temps.Sort();
+	}
+
+	/**
 	 * Gets the temperature at the current time, according to the given TimeFrame.
 	 * \param[out] Current temperature in Celsius, NaN if no setpoints exist
 	 */
@@ -91,7 +101,7 @@ public class LinearWeather : IWeather
 		{
 			return Double.NaN;
 		}
-		DateTime now = _frame.now();
+		DateTime now = Frame.now();
 		var search_point = new TemperatureSetPoint(now, 0.0);
 		int idx = _temps.BinarySearch(search_point);
 
