@@ -1,9 +1,9 @@
-packages/
+**/packages/
 *.dll
 *.mdb
 *.pidb
 *.userprefs
-^obj/
-^bin/
-^Components/
+**/obj/
+**/bin/
+**/Components/
 \.keystore$
