@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Hats.SimWeather;
 using Hats.Time;
 
@@ -97,11 +98,26 @@ public class LinearWeather : IWeather
 	 */
 	public Double Temperature()
 	{
+		return Temperature(Frame.now());
+	}
+
+	/**
+	 * Gets the temperature at the given time. Will conver the given time to the
+	 * internal TimeFrame if requested, otherwise assumes the given time is valid in that TimeFrame.
+	 * \param[in] now Time to get temperature for.
+	 * \param[in] convertTime Flag indicating if time should be converted.
+	 * \param[out] Temperature in Celsius
+	 */
+	public Double Temperature(DateTime now, bool convertTime = false)
+	{
 		if(_temps.Count == 0)
 		{
 			return Double.NaN;
 		}
-		DateTime now = Frame.now();
+		if(convertTime)
+		{
+			now = Frame.time(now);
+		}
 		var search_point = new TemperatureSetPoint(now, 0.0);
 		int idx = _temps.BinarySearch(search_point);
 
@@ -132,6 +148,23 @@ public class LinearWeather : IWeather
 		}
 
 		return temp;
+	}
+
+	/**
+	 * Access a read-only version of the list of set points.
+	 * \param[out] ReadOnlyCollection of the TemperatureSetPoints in use.
+	 */
+	public ReadOnlyCollection<TemperatureSetPoint> SetPoints()
+	{
+		return new ReadOnlyCollection<TemperatureSetPoint>(_temps);
+	}
+
+	/**
+	 *  Clear out all TemperatureSetPoints in this class.
+	 */
+	public void ClearSetPoints()
+	{
+		_temps.Clear();
 	}
 }
 

@@ -93,6 +93,25 @@ public class Test
 		linear.Add(temp_a);
 
 		Assert.AreEqual(StartingTemp, linear.Temperature());
+		Assert.AreEqual(1, linear.SetPoints().Count);
+		linear.ClearSetPoints();
+		Assert.AreEqual(0, linear.SetPoints().Count);
+
+		var start = DateTime.Now;
+		List<TemperatureSetPoint> temps = new List<TemperatureSetPoint>
+		{
+			new TemperatureSetPoint(start, 0),
+			new TemperatureSetPoint(start + new TimeSpan(0, 0, 10), 10),
+			new TemperatureSetPoint(start + new TimeSpan(0, 0, 20), 20),
+			new TemperatureSetPoint(start + new TimeSpan(0, 0, 30), 10)
+		};
+
+		linear.AddRange(temps);
+		Assert.AreEqual(temps.Count, linear.SetPoints().Count);
+
+		Assert.AreEqual(temps[0].Temp, linear.Temperature(start));
+		Assert.AreEqual(5, linear.Temperature(start + new TimeSpan(0, 0, 5)));
+		Assert.AreEqual(15, linear.Temperature(start + new TimeSpan(0, 0, 25)));
 	}
 }
 }

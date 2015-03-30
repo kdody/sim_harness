@@ -38,7 +38,7 @@ public class TimeFrame
 	public DateTime time(DateTime real_time)
 	{
 		TimeSpan diff = real_time - _wall_epoch;
-		double scaled_ticks = (double)diff.Ticks * _rate;
+		double scaled_ticks = (double)diff.Ticks * Rate;
 		TimeSpan final_diff = TimeSpan.FromTicks((long)scaled_ticks);
 		return _sim_epoch + final_diff;
 	}
@@ -59,7 +59,7 @@ public class TimeFrame
 		_sim_epoch = sim;
 		_wall_epoch.ToUniversalTime();
 		_sim_epoch.ToUniversalTime();
-		_rate = rate;
+		Rate = rate;
 	}
 
 	/**
@@ -72,12 +72,38 @@ public class TimeFrame
 	{
 		wall = _wall_epoch;
 		sim = _sim_epoch;
-		rate = _rate;
+		rate = Rate;
+	}
+
+	public DateTime WallEpoch
+	{
+		get
+		{
+			return _wall_epoch.ToLocalTime();
+		}
+		set
+		{
+			_wall_epoch = value;
+			_wall_epoch.ToUniversalTime();
+		}
+	}
+
+	public DateTime SimEpoch
+	{
+		get
+		{
+			return _sim_epoch.ToLocalTime();
+		}
+		set
+		{
+			_sim_epoch = value;
+			_sim_epoch.ToUniversalTime();
+		}
 	}
 
 	protected DateTime _wall_epoch;
 	protected DateTime _sim_epoch;
-	protected double _rate;
+	public double Rate { get; set; }
 
 	}
 
