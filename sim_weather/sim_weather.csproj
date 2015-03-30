@@ -3,11 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{99C6E3E4-0AE3-4507-8416-38B32DAC9E56}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{6CE7D676-2363-46E5-9E2D-A656BEA0F4C2}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>sim_tests</RootNamespace>
-    <AssemblyName>sim_tests</AssemblyName>
+    <RootNamespace>sim_weather</RootNamespace>
+    <AssemblyName>sim_weather</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,34 +30,19 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weather.cs" />
+    <Compile Include="LinearWeather.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Test.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\time_frame\time_frame\time_frame.csproj">
       <Project>{E9C8A0A8-16D9-4FEF-AB45-04E9EE9A579E}</Project>
       <Name>time_frame</Name>
-      <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\sim_weather\sim_weather.csproj">
-      <Project>{6CE7D676-2363-46E5-9E2D-A656BEA0F4C2}</Project>
-      <Name>sim_weather</Name>
-      <Private>False</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\device_commands\device_commands.csproj">
-      <Project>{3FA34053-E64F-4AF5-AB24-8BB7FF660257}</Project>
-      <Name>device_commands</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
