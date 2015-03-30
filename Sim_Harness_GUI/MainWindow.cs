@@ -37,4 +37,36 @@ public partial class MainWindow: Gtk.Window
 
 		newSenario.Destroy();
 	}
+
+	protected void OnAppSimulatorChooseFileButtonClicked (object sender, EventArgs e)
+	{
+		this.appSimLocationEntry.Text = selectFile();
+
+
+	}
+
+
+	protected void OnHouseSimLocationButtonClicked (object sender, EventArgs e)
+	{
+		this.houseSimLocationEntry.Text = this.selectFile();
+	}
+
+	protected String selectFile(){
+
+		String returnText = "";
+		Gtk.FileChooserDialog filechooser =
+			new Gtk.FileChooserDialog("Choose the file to select",
+				this,
+				FileChooserAction.Open,
+				"Cancel",ResponseType.Cancel,
+				"Select",ResponseType.Accept);
+
+		if (filechooser.Run() == (int)ResponseType.Accept) 
+		{
+			returnText = filechooser.Filename;
+		}
+
+		filechooser.Destroy();
+		return returnText;
+	}
 }
