@@ -27,9 +27,19 @@ public class TimeFrame
 	 */ 
 	public DateTime now()
 	{
-		TimeSpan diff = DateTime.Now - _wall_epoch;
+		return time(DateTime.Now);
+	}
+
+	/**
+	 * Function which converts a time into the relative frame.
+	 * \param[in] real_time Wall time to convert into the real time frame.
+	 * \param[out] DateTime converted into the new time frame.
+	 */
+	public DateTime time(DateTime real_time)
+	{
+		TimeSpan diff = real_time - _wall_epoch;
 		double scaled_ticks = (double)diff.Ticks * _rate;
-		TimeSpan final_diff = TimeSpan.FromTicks ((long)scaled_ticks);
+		TimeSpan final_diff = TimeSpan.FromTicks((long)scaled_ticks);
 		return _sim_epoch + final_diff;
 	}
 
