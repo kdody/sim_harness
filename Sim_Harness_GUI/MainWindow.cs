@@ -18,12 +18,12 @@ public partial class MainWindow: Gtk.Window
 		a.RetVal = true;
 	}
 
-	protected void OnStartTestButtonClicked (object sender, EventArgs e)
+	protected void OnStartTestButtonClicked(object sender, EventArgs e)
 	{
 		//this.testSenarioComboBox.AppendText("Hello");
 	}
 
-	protected void OnLoadScenarioButton (object sender, EventArgs e)
+	protected void OnLoadScenarioButton(object sender, EventArgs e)
 	{
 		var item = new Gtk.TreeIter();
 		this.testScenarioComboBox.GetActiveIter(out item);
@@ -32,12 +32,12 @@ public partial class MainWindow: Gtk.Window
 		Console.WriteLine(this.testScenarioComboBox.Model.GetValue(item, 1));
 	}
 
-	protected void OnAppSimulatorChooseFileButtonClicked (object sender, EventArgs e)
+	protected void OnAppSimulatorChooseFileButtonClicked(object sender, EventArgs e)
 	{
 		this.appSimLocationEntry.Text = this.selectFile();
 	}
 
-	protected void OnHouseSimLocationButtonClicked (object sender, EventArgs e)
+	protected void OnHouseSimLocationButtonClicked(object sender, EventArgs e)
 	{
 		this.houseSimLocationEntry.Text = this.selectFile();
 	}
@@ -49,10 +49,10 @@ public partial class MainWindow: Gtk.Window
 			new Gtk.FileChooserDialog("Choose the file to select",
 				this,
 				FileChooserAction.Open,
-				"Cancel",ResponseType.Cancel,
-				"Select",ResponseType.Accept);
+				"Cancel", ResponseType.Cancel,
+				"Select", ResponseType.Accept);
 
-		if (filechooser.Run() == (int)ResponseType.Accept) 
+		if(filechooser.Run() == (int)ResponseType.Accept)
 		{
 			returnText = filechooser.Filename;
 		}
@@ -89,8 +89,7 @@ public partial class MainWindow: Gtk.Window
 		}
 		this.testScenarioComboBox.Model = newList;
 		this.testScenarioComboBox.Active = 0;
-		_scenario_dir = dir;
 	}
 
-	protected String _scenario_dir;
+	protected InstanceManager _instances;
 }
