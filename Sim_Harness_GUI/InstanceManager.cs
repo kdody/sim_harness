@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Sim_Harness_GUI
 {
@@ -48,28 +48,26 @@ public class InstanceManager
 
 	public void BuildLists()
 	{
-		var jss = new JavaScriptSerializer();
-		var dict = jss.Deserialize<dynamic>(_scenario);
+		Dictionary<string, string> values = JsonConvert.DeserializeObject<Dictionary<string, string>>(_scenario);
+		List<Dictionary<string, string>> house_dict = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(values["houses"]);
+		List<Dictionary<string, string>> app_dict = JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(values["users"]);
 
-		List<Dictionary<dynamic>> houses = dict["houses"];
-		List<Dictionary<dynamic>> apps = dict["users"];
-
-		foreach(Dictionary<dynamic> entry in houses)
+		foreach(Dictionary<string, string> entry in house_dict)
 		{
 			string args = String.Concat("--house ", entry["name"]);
 			args = String.Concat(" --scenario ", _scenario);
 			var process = new Process();
-			process.StartInfo.Filename = _house_path;
+			process.StartInfo.FileName = _house_path;
 			process.StartInfo.Arguments = args;
 			_houses.Add(process);
 		}
 
-		foreach(Dictionary<dynamic> entry in devices)
+		foreach(Dictionary<string, string> entry in app_dict)
 		{
 			string args = String.Concat("--user ", entry["name"]);
 			args = String.Concat(" --scenario ", _scenario);
 			var process = new Process();
-			process.StartInfo.Filename = _app_path;
+			process.StartInfo.FileName = _app_path;
 			process.StartInfo.Arguments = args;
 			_apps.Add(process);
 		}
