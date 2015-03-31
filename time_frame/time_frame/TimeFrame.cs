@@ -79,7 +79,7 @@ public class TimeFrame
 	{
 		get
 		{
-			return _wall_epoch.ToLocalTime();
+			return _wall_epoch;
 		}
 		set
 		{
@@ -92,7 +92,7 @@ public class TimeFrame
 	{
 		get
 		{
-			return _sim_epoch.ToLocalTime();
+			return _sim_epoch;
 		}
 		set
 		{
@@ -101,9 +101,10 @@ public class TimeFrame
 		}
 	}
 
+	public double Rate { get; set; }
+
 	protected DateTime _wall_epoch;
 	protected DateTime _sim_epoch;
-	public double Rate { get; set; }
 
 	}
 
