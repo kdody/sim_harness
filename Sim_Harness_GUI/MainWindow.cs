@@ -1,6 +1,7 @@
 ﻿using System;
 using Gtk;
 using Sim_Harness_GUI;
+using System.IO;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -19,40 +20,30 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnStartTestButtonClicked (object sender, EventArgs e)
 	{
-		this.testSenarioComboBox.AppendText("Hello");
+		//this.testSenarioComboBox.AppendText("Hello");
 	}
 
-	protected void OnNewSenarioCreateButtonClicked (object sender, EventArgs e)
+	protected void OnLoadScenarioButton (object sender, EventArgs e)
 	{
-		Dialog  newSenario = new New_Senario();
-		int response = newSenario.Run();
-		if(response == (int) Gtk.ResponseType.Ok)
-		{
-			Console.WriteLine("EXIT OKAY");
-		} 
-		else
-		{
-			Console.WriteLine("EXIT CANCEL");
-		}
+		var item = new Gtk.TreeIter();
+		this.testScenarioComboBox.GetActiveIter(out item);
 
-		newSenario.Destroy();
+		//TODO: Read in file, prep for launch here
+		Console.WriteLine(this.testScenarioComboBox.Model.GetValue(item, 1));
 	}
 
 	protected void OnAppSimulatorChooseFileButtonClicked (object sender, EventArgs e)
 	{
-		this.appSimLocationEntry.Text = selectFile();
-
-
+		this.appSimLocationEntry.Text = this.selectFile();
 	}
-
 
 	protected void OnHouseSimLocationButtonClicked (object sender, EventArgs e)
 	{
 		this.houseSimLocationEntry.Text = this.selectFile();
 	}
 
-	protected String selectFile(){
-
+	protected String selectFile()
+	{
 		String returnText = "";
 		Gtk.FileChooserDialog filechooser =
 			new Gtk.FileChooserDialog("Choose the file to select",
@@ -69,4 +60,37 @@ public partial class MainWindow: Gtk.Window
 		filechooser.Destroy();
 		return returnText;
 	}
+
+	protected void OnScenarioDirectoryLoad(object sender, EventArgs e)
+	{
+		Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog("Select Scenario Directory",
+			                                this,
+			                                FileChooserAction.SelectFolder,
+			                                "Cancel", ResponseType.Cancel,
+			                                "Select", ResponseType.Accept);
+
+		if(chooser.Run() == (int)ResponseType.Accept)
+		{
+			this.buildScenarioList(chooser.Filename);
+			this.scenarioDirectoryText.Text = chooser.Filename;
+		}
+
+		chooser.Destroy();
+	}
+
+	protected void buildScenarioList(String dir)
+	{
+		var newList = new ListStore(typeof(string), typeof(string));
+		foreach(string file in Directory.EnumerateFiles(dir, "*.json"))
+		{
+			string scenario = System.IO.Path.GetFileNameWithoutExtension(file);
+			Console.WriteLine("Adding " + scenario);
+			newList.AppendValues(scenario, file);
+		}
+		this.testScenarioComboBox.Model = newList;
+		this.testScenarioComboBox.Active = 0;
+		_scenario_dir = dir;
+	}
+
+	protected String _scenario_dir;
 }
