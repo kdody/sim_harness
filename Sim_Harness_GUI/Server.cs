@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Net.NetworkInformation;
 
 /**
  * Server Class
@@ -11,18 +12,46 @@ namespace Hats.ServerInterface
 {
 public class Server
 {
-	private HttpClient client;
 	// the reference to the physical server
+	private HttpClient client;
+
+	// server response
+	private HttpResponseMessage response;
 
 	/**
  	 * Instantiates a new server object
  	 * \param[in] client Client to connect to and communicate through
  	 */
-	public Server(HttpClient client)
-	{
-		this.client = client;
+	public Server(Uri url)
+	{			
+		client = new HttpClient();
+		client.BaseAddress = url;
+	}
 
-		// connect to the client
+	/**
+ 	 * Connect to the remote host
+ 	 */
+	public async void connect()
+	{
+		try	
+		{
+			response = await client.GetAsync(client.BaseAddress);
+			response.EnsureSuccessStatusCode(); // throws exception if unsuccessful connection
+		}
+		catch
+		{
+			// handle exception
+		}
+
+	}
+
+	/**
+ 	 * Get server's response to last request
+ 	 * \param[out] string representing server's response to latest request
+ 	 */
+	public string getResponse()
+	{
+		return response.Content.ToString();
 	}
 
 	/**
@@ -30,18 +59,32 @@ public class Server
  	 */
 	public bool serverReady()
 	{
-		return true;
+
+		// code reference:
+		// http://www.codeproject.com/Tips/109427/How-to-PING-Server-in-C
+
+		string host = string.Format("{0}", client.BaseAddress.Host); 
+		Ping p = new Ping();
+		try
+		{
+			PingReply reply = p.Send(host, 3000);
+			if (reply.Status == IPStatus.Success)
+				return true;
+		}
+		catch 
+		{ 
+			// handle exception
+		}
+
+		return false;
 	}
 
 	/**
  	 * Run the operator's selected test scenario
- 	 * \param[in] testScenario ***Scenario chosen by the operator
+ 	 * \param[in] testScenario string representing scenario chosen by the operator
  	 * \param[out] Config info for the selected test scenario - JSON string
- 	 * 
- 	 * *** class needs to be defined
- 	 * 
  	 */
-	public String runScenario(/*Scenario testScenario*/)
+	public String runScenario(string testScenario)
 	{
 		return "";
 	}
