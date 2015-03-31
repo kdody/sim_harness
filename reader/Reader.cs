@@ -8,65 +8,41 @@ namespace Hats
 {
     namespace Reader
     {
-
-        public class coordinates
-        {
-            public string x { get; set; }
-            public string y { get; set; }
-            public string z { get; set; }
-        }
-        public class Users
-        {
-            public string UserID { get; set; }
-            public string Password { get; set; }
-            public coordinates Coordinates { get; set; }
-        }
+        //Stores lists of users and houses from the JSON file
         public class Configuration
         {
-            public string storageLocation { get; set; }
             public List<Users> users { get; set; }
             public List<Houses> houses { get; set; }
         }
+        //Class the user ID is stored in upon reading the JSON file
+        public class Users
+        {
+            public string UserID { get; set; }
+        }
+        //Holds the name of a house and the devices in the house
         public class Houses
         {
             public string name { get; set; }
             public List<devices> devices { get; set; }
-            public List<Rooms> rooms { get; set; }
         }
+        //Holds the name of a device
         public class devices
         {
             public string name { get; set; }
-            public string type { get; set; }
-            public string sim { get; set; }
-            public string startState { get; set; }
         }
-
+        //Holds a list of rooms
         public class Rooms
         {   
             public List<RoomID> RoomIDs { get; set; }
             
         }
-
+        //Holds the name of a room
         public class RoomID
         {
-            public string type { get; set; }
             public string name { get; set; }
-            public dimensions dimensions { get; set; }
-            public string roomlevel { get; set; }
-            public List<connectingrooms> connectingroomss { get; set; }
-            public string roomname { get; set; }
-            public List<devices> devicess { get; set; }
-        }
-        public class dimensions
-        {
-            public int width { get; set; }
-            public int length { get; set; }
         }
 
-        public class connectingrooms
-        {
-
-        }
+        //Holds lists of the usernames, house Ids, and device Ids after they are located in the JSON file
         public class toVerify
         {
             public List<string> userNames  = new List<string>();
@@ -75,7 +51,10 @@ namespace Hats
         }
         public class Reader
         {
-
+            //reads the JSON file and parses out the usernames, house IDs, and device IDs to be checked with server
+            //before starting the simulation. 
+            //Inputs: string fileName: name of the json file
+            //Outputs: toVerify: a toVerify object containing lists of Strings for the usernames and house/device IDs
             public toVerify readFile(string fileName)
             {
                 toVerify output = new toVerify();
