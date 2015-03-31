@@ -3,9 +3,9 @@ using Gtk;
 
 namespace Sim_Harness_GUI
 {
-	public partial class New_Senario : Gtk.Dialog
+	public partial class NewScenario : Gtk.Dialog
 	{
-		public New_Senario()
+		public NewScenario()
 		{
 			this.Build();
 		}

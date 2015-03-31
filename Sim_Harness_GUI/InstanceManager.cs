@@ -60,7 +60,7 @@ public class InstanceManager
 
 		foreach(Dictionary<string, string> entry in house_dict)
 		{
-			_houses.Add(new SimHouse(_scenario, _house_path, entry["name"]);
+			_houses.Add(new SimHouse(_scenario, _house_path, entry["name"]));
 		}
 
 		foreach(Dictionary<string, string> entry in app_dict)
