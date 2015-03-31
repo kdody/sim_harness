@@ -3,7 +3,7 @@
 
 public partial class MainWindow
 {
-	private global::Gtk.VBox vbox2;
+	private global::Gtk.VBox mainBox;
 	
 	private global::Gtk.Label mainWindowTitleLabel;
 	
@@ -59,7 +59,7 @@ public partial class MainWindow
 	
 	private global::Gtk.VBox vbox3;
 	
-	private global::Gtk.Label Test_Senario_Lable;
+	private global::Gtk.Label Test_Scenario_Lable;
 	
 	private global::Gtk.VBox vbox11;
 	
@@ -81,7 +81,7 @@ public partial class MainWindow
 	
 	private global::Gtk.HBox hbox12;
 	
-	private global::Gtk.Button newSenarioCreateButton;
+	private global::Gtk.Button newScenarioCreateButton;
 	
 	private global::Gtk.Button startTestButton;
 	
@@ -107,17 +107,17 @@ public partial class MainWindow
 		this.BorderWidth = ((uint)(24));
 		this.Gravity = ((global::Gdk.Gravity)(5));
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.vbox2 = new global::Gtk.VBox ();
-		this.vbox2.Name = "vbox2";
-		this.vbox2.Spacing = 6;
+		this.mainBox = new global::Gtk.VBox ();
+		this.mainBox.Name = "vbox2";
+		this.mainBox.Spacing = 6;
 		// Container child vbox2.Gtk.Box+BoxChild
 		this.mainWindowTitleLabel = new global::Gtk.Label ();
 		this.mainWindowTitleLabel.Name = "mainWindowTitleLabel";
 		this.mainWindowTitleLabel.Ypad = 7;
 		this.mainWindowTitleLabel.LabelProp = global::Mono.Unix.Catalog.GetString ("Sim Harnes");
 		this.mainWindowTitleLabel.Justify = ((global::Gtk.Justification)(2));
-		this.vbox2.Add (this.mainWindowTitleLabel);
-		global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.mainWindowTitleLabel]));
+		this.mainBox.Add (this.mainWindowTitleLabel);
+		global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.mainBox [this.mainWindowTitleLabel]));
 		w1.Position = 0;
 		w1.Expand = false;
 		w1.Fill = false;
@@ -357,11 +357,11 @@ public partial class MainWindow
 		this.vbox3.Name = "vbox3";
 		this.vbox3.Spacing = 6;
 		// Container child vbox3.Gtk.Box+BoxChild
-		this.Test_Senario_Lable = new global::Gtk.Label ();
-		this.Test_Senario_Lable.Name = "Test_Senario_Lable";
-		this.Test_Senario_Lable.LabelProp = global::Mono.Unix.Catalog.GetString ("Test Senarios");
-		this.vbox3.Add (this.Test_Senario_Lable);
-		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.Test_Senario_Lable]));
+		this.Test_Scenario_Lable = new global::Gtk.Label ();
+		this.Test_Scenario_Lable.Name = "Test_Senario_Lable";
+		this.Test_Scenario_Lable.LabelProp = global::Mono.Unix.Catalog.GetString ("Test Senarios");
+		this.vbox3.Add (this.Test_Scenario_Lable);
+		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.Test_Scenario_Lable]));
 		w26.Position = 0;
 		w26.Expand = false;
 		w26.Fill = false;
@@ -415,16 +415,16 @@ public partial class MainWindow
 		w33.Position = 2;
 		w33.Expand = false;
 		w33.Fill = false;
-		this.vbox2.Add (this.hbox3);
-		global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox3]));
+		this.mainBox.Add (this.hbox3);
+		global::Gtk.Box.BoxChild w34 = ((global::Gtk.Box.BoxChild)(this.mainBox [this.hbox3]));
 		w34.Position = 1;
 		w34.Expand = false;
 		w34.Fill = false;
 		// Container child vbox2.Gtk.Box+BoxChild
 		this.hseparator3 = new global::Gtk.HSeparator ();
 		this.hseparator3.Name = "hseparator3";
-		this.vbox2.Add (this.hseparator3);
-		global::Gtk.Box.BoxChild w35 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hseparator3]));
+		this.mainBox.Add (this.hseparator3);
+		global::Gtk.Box.BoxChild w35 = ((global::Gtk.Box.BoxChild)(this.mainBox [this.hseparator3]));
 		w35.Position = 2;
 		w35.Expand = false;
 		w35.Fill = false;
@@ -441,13 +441,13 @@ public partial class MainWindow
 		this.hbox12.Name = "hbox12";
 		this.hbox12.Spacing = 6;
 		// Container child hbox12.Gtk.Box+BoxChild
-		this.newSenarioCreateButton = new global::Gtk.Button ();
-		this.newSenarioCreateButton.CanFocus = true;
-		this.newSenarioCreateButton.Name = "newSenarioCreateButton";
-		this.newSenarioCreateButton.UseUnderline = true;
-		this.newSenarioCreateButton.Label = global::Mono.Unix.Catalog.GetString ("New Senario");
-		this.hbox12.Add (this.newSenarioCreateButton);
-		global::Gtk.Box.BoxChild w36 = ((global::Gtk.Box.BoxChild)(this.hbox12 [this.newSenarioCreateButton]));
+		this.newScenarioCreateButton = new global::Gtk.Button ();
+		this.newScenarioCreateButton.CanFocus = true;
+		this.newScenarioCreateButton.Name = "newSenarioCreateButton";
+		this.newScenarioCreateButton.UseUnderline = true;
+		this.newScenarioCreateButton.Label = global::Mono.Unix.Catalog.GetString ("New Senario");
+		this.hbox12.Add (this.newScenarioCreateButton);
+		global::Gtk.Box.BoxChild w36 = ((global::Gtk.Box.BoxChild)(this.hbox12 [this.newScenarioCreateButton]));
 		w36.Position = 0;
 		w36.Expand = false;
 		w36.Fill = false;
@@ -521,10 +521,10 @@ public partial class MainWindow
 		w45.Position = 0;
 		w45.Expand = false;
 		w45.Fill = false;
-		this.vbox2.Add (this.hbox4);
-		global::Gtk.Box.BoxChild w46 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.hbox4]));
+		this.mainBox.Add (this.hbox4);
+		global::Gtk.Box.BoxChild w46 = ((global::Gtk.Box.BoxChild)(this.mainBox [this.hbox4]));
 		w46.Position = 3;
-		this.Add (this.vbox2);
+		this.Add (this.mainBox);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
@@ -534,7 +534,7 @@ public partial class MainWindow
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.appSimulatorChooseFileButton.Clicked += new global::System.EventHandler (this.OnAppSimulatorChooseFileButtonClicked);
 		this.houseSimLocationButton.Clicked += new global::System.EventHandler (this.OnHouseSimLocationButtonClicked);
-		this.newSenarioCreateButton.Clicked += new global::System.EventHandler (this.OnNewSenarioCreateButtonClicked);
+		this.newScenarioCreateButton.Clicked += new global::System.EventHandler (this.OnNewSenarioCreateButtonClicked);
 		this.startTestButton.Clicked += new global::System.EventHandler (this.OnStartTestButtonClicked);
 	}
 }
