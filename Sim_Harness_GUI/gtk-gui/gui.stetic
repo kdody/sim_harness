@@ -5,7 +5,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Debug/Sim_Harness_GUI.exe" internal="true" />
+    <widget-library name="../bin/Release/Sim_Harness_GUI.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="734 544">
     <property name="MemberName" />
@@ -22,7 +22,7 @@
           <widget class="Gtk.Label" id="mainWindowTitleLabel">
             <property name="MemberName" />
             <property name="Ypad">7</property>
-            <property name="LabelProp" translatable="yes">Sim Harnes</property>
+            <property name="LabelProp" translatable="yes">Sim Harness</property>
             <property name="Justify">Center</property>
           </widget>
           <packing>
@@ -82,7 +82,7 @@
                             <child>
                               <widget class="Gtk.Label" id="appSimLocationLabel">
                                 <property name="MemberName" />
-                                <property name="LabelProp" translatable="yes">App Simulater Location</property>
+                                <property name="LabelProp" translatable="yes">App Simulator Location</property>
                                 <property name="Justify">Center</property>
                               </widget>
                               <packing>
@@ -347,9 +347,9 @@
                 <property name="MemberName" />
                 <property name="Spacing">6</property>
                 <child>
-                  <widget class="Gtk.Label" id="Test_Senario_Lable">
+                  <widget class="Gtk.Label" id="Test_Scenario_Lable">
                     <property name="MemberName" />
-                    <property name="LabelProp" translatable="yes">Test Senarios</property>
+                    <property name="LabelProp" translatable="yes">Test Scenarios</property>
                   </widget>
                   <packing>
                     <property name="Position">0</property>
@@ -463,11 +463,11 @@
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <widget class="Gtk.Button" id="newSenarioCreateButton">
+                      <widget class="Gtk.Button" id="newScenarioCreateButton">
                         <property name="MemberName" />
                         <property name="CanFocus">True</property>
                         <property name="Type">TextOnly</property>
-                        <property name="Label" translatable="yes">New Senario</property>
+                        <property name="Label" translatable="yes">New Scenario</property>
                         <property name="UseUnderline">True</property>
                         <signal name="Clicked" handler="OnNewSenarioCreateButtonClicked" />
                       </widget>
