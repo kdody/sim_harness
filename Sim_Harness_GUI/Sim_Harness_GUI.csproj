@@ -66,6 +66,9 @@
     <Compile Include="gtk-gui\Sim_Harness_GUI.New_Senario.cs" />
     <Compile Include="NewSenario.cs" />
     <Compile Include="InstanceManager.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="SimApp.cs" />
+    <Compile Include="SimHouse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

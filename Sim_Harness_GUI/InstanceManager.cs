@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Hats.ServerInterface;
+using Hats.Sim;
 using Newtonsoft.Json;
 
 namespace Sim_Harness_GUI
@@ -8,41 +10,45 @@ namespace Sim_Harness_GUI
 public class InstanceManager
 {
 	protected string _scenario;
-	protected List<Process> _houses;
-	protected List<Process> _apps;
+	protected List<SimHouse> _houses;
+	protected List<SimApp> _apps;
 	protected string _house_path;
 	protected string _app_path;
 	public InstanceManager(string scenario, string house_path, string app_path)
 	{
 		_scenario = scenario;
+		_house_path = house_path;
+		_app_path = app_path;
+		BuildLists();
 	}
 
-	public bool Launch()
+	public bool Start()
 	{
 		//TODO: Add validation that everything is ready to launch
 		//TODO: Add backing store in case of crash
-		foreach(Process proc in _houses)
+		foreach(SimHouse house in _houses)
 		{
-			proc.Start();
+			house.Start();
 		}
 
-		foreach(Process proc in _apps)
+		foreach(SimApp app in _apps)
 		{
-			proc.Start();
+			app.Start();
 		}
 
 		return true;
 	}
 
-	public void End()
+	public void Kill()
 	{
-		foreach(Process proc in _houses)
+		foreach(SimHouse house in _houses)
 		{
-			proc.Kill();
+			house.Kill();
 		}
-		foreach(Process proc in _apps)
+
+		foreach(SimApp app in _apps)
 		{
-			proc.Kill();
+			app.Kill();
 		}
 	}
 
@@ -54,22 +60,12 @@ public class InstanceManager
 
 		foreach(Dictionary<string, string> entry in house_dict)
 		{
-			string args = String.Concat("--house ", entry["name"]);
-			args = String.Concat(" --scenario ", _scenario);
-			var process = new Process();
-			process.StartInfo.FileName = _house_path;
-			process.StartInfo.Arguments = args;
-			_houses.Add(process);
+			_houses.Add(new SimHouse(_scenario, _house_path, entry["name"]);
 		}
 
 		foreach(Dictionary<string, string> entry in app_dict)
 		{
-			string args = String.Concat("--user ", entry["name"]);
-			args = String.Concat(" --scenario ", _scenario);
-			var process = new Process();
-			process.StartInfo.FileName = _app_path;
-			process.StartInfo.Arguments = args;
-			_apps.Add(process);
+			_apps.Add(new SimApp(_scenario, _app_path, entry["name"]));
 		}
 	}
 }
