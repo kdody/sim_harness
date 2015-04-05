@@ -5,7 +5,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Release/Sim_Harness_GUI.exe" internal="true" />
+    <widget-library name="../bin/Debug/Sim_Harness_GUI.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="939 753">
     <property name="MemberName" />
@@ -105,6 +105,7 @@
                         <property name="CanFocus">True</property>
                         <property name="IsEditable">False</property>
                         <property name="InvisibleChar">●</property>
+                        <signal name="Changed" handler="OnScenarioDirectoryTextChanged" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -143,6 +144,7 @@
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Choose...</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnAppSimulatorChooseFileButtonClicked" />
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -157,6 +159,7 @@
                         <property name="CanFocus">True</property>
                         <property name="IsEditable">False</property>
                         <property name="InvisibleChar">●</property>
+                        <signal name="Changed" handler="OnAppSimLocationEntryChanged" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -194,6 +197,7 @@
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">Choose...</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnHouseSimLocationButtonClicked" />
                       </widget>
                       <packing>
                         <property name="Position">0</property>
@@ -208,6 +212,7 @@
                         <property name="CanFocus">True</property>
                         <property name="IsEditable">False</property>
                         <property name="InvisibleChar">●</property>
+                        <signal name="Changed" handler="OnHouseSimLocationEntryChanged" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>
@@ -504,6 +509,7 @@
                         <property name="Type">TextOnly</property>
                         <property name="Label" translatable="yes">End Test</property>
                         <property name="UseUnderline">True</property>
+                        <signal name="Clicked" handler="OnEndTestButtonClicked" />
                       </widget>
                       <packing>
                         <property name="Position">1</property>

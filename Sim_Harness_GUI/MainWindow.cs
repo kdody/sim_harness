@@ -5,6 +5,8 @@ using System.IO;
 
 public partial class MainWindow: Gtk.Window
 {
+	protected InstanceManager _instances;
+
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
 		Console.WriteLine("Build");
@@ -20,7 +22,15 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnStartTestButtonClicked(object sender, EventArgs e)
 	{
-		//this.testSenarioComboBox.AppendText("Hello");
+		String jsonStartString = buildStartString();
+		currentTestTextview.Buffer.Text = jsonStartString;
+		//_instances = new InstanceManager(scenarioDirectoryText.Text, houseSimLocationEntry.Text, appSimLocationEntry.Text);
+		//_instances.Start();
+		startTestButton.Sensitive = false;
+		endTestButton.Sensitive = true;
+
+
+
 	}
 
 	protected void OnLoadScenarioButton(object sender, EventArgs e)
@@ -91,5 +101,65 @@ public partial class MainWindow: Gtk.Window
 		this.testScenarioComboBox.Active = 0;
 	}
 
-	protected InstanceManager _instances;
+	protected void OnScenarioDirectoryTextChanged (object sender, EventArgs e)
+	{
+		changeStartButton();
+	}
+
+	protected void OnAppSimLocationEntryChanged (object sender, EventArgs e)
+	{
+		changeStartButton();
+	}
+
+	protected void OnHouseSimLocationEntryChanged (object sender, EventArgs e)
+	{
+		changeStartButton();
+	}
+
+	/**
+	 * Changes the start button to clickable if the files are valid
+	 */ 
+	private void changeStartButton()
+	{
+		if(checkFiles())
+		{
+			startTestButton.Sensitive = true;
+		}
+		else
+		{
+			startTestButton.Sensitive = false;
+		}
+	}
+
+	/**
+	 * Makes sure the three files selected are 
+	 */
+	private bool checkFiles()
+	{
+		if(File.Exists(scenarioDirectoryText.Text + "/" + testScenarioComboBox.ActiveText + ".json") && File.Exists(appSimLocationEntry.Text) && File.Exists(houseSimLocationEntry.Text))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	private string buildStartString()
+	{
+		string jsonString = "{\n\t\"TimeFrame\": {" +
+			"\n\t\t\"wall\": \"" + DateTime.Now.ToString("o") + "\"," +
+			"\n\t\t\"sim\": \"" + DateTime.Now.ToString("o") + "\"," + 
+			"\n\t\t\"rate\": " + timeFrameSpeedSpinbutton.Text +
+			"\n\t}\n}";
+		return jsonString;
+	}
+
+	protected void OnEndTestButtonClicked (object sender, EventArgs e)
+	{
+		_instances.Kill();
+		endTestButton.Sensitive = false;
+		startTestButton.Sensitive = true;
+	}
 }
