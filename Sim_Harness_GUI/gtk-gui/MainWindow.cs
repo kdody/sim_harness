@@ -278,13 +278,13 @@ public partial class MainWindow
 		w17.Expand = false;
 		w17.Fill = false;
 		// Container child hbox10.Gtk.Box+BoxChild
-		this.timeFrameSpeedSpinbutton = new global::Gtk.SpinButton (1, 10000, 1);
+		this.timeFrameSpeedSpinbutton = new global::Gtk.SpinButton (1D, 10000D, 1D);
 		this.timeFrameSpeedSpinbutton.CanFocus = true;
 		this.timeFrameSpeedSpinbutton.Name = "timeFrameSpeedSpinbutton";
-		this.timeFrameSpeedSpinbutton.Adjustment.PageIncrement = 10;
-		this.timeFrameSpeedSpinbutton.ClimbRate = 1;
+		this.timeFrameSpeedSpinbutton.Adjustment.PageIncrement = 10D;
+		this.timeFrameSpeedSpinbutton.ClimbRate = 1D;
 		this.timeFrameSpeedSpinbutton.Numeric = true;
-		this.timeFrameSpeedSpinbutton.Value = 1;
+		this.timeFrameSpeedSpinbutton.Value = 1D;
 		this.hbox10.Add (this.timeFrameSpeedSpinbutton);
 		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox10 [this.timeFrameSpeedSpinbutton]));
 		w18.Position = 1;
@@ -353,7 +353,7 @@ public partial class MainWindow
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
 		this.testSenarioTextview = new global::Gtk.TextView ();
-		this.testSenarioTextview.Buffer.Text = "None Selected \n(This will show what is contained in the selected Senario)";
+		this.testSenarioTextview.Buffer.Text = "None Selected \r\n(This will show what is contained in the selected Senario)";
 		this.testSenarioTextview.WidthRequest = 200;
 		this.testSenarioTextview.CanFocus = true;
 		this.testSenarioTextview.Name = "testSenarioTextview";
