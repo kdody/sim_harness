@@ -7,3 +7,5 @@
 **/bin/
 **/Components/
 \.keystore$
+
+Sim_Harness_GUI/obj/Debug/Sim_Harness_GUI.gtk-gui.gui.stetic

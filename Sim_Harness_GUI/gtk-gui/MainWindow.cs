@@ -486,7 +486,13 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.scenarioDirButton.Clicked += new global::System.EventHandler (this.OnScenarioDirectoryLoad);
+		this.scenarioDirectoryText.Changed += new global::System.EventHandler (this.OnScenarioDirectoryTextChanged);
+		this.appSimulatorChooseFileButton.Clicked += new global::System.EventHandler (this.OnAppSimulatorChooseFileButtonClicked);
+		this.appSimLocationEntry.Changed += new global::System.EventHandler (this.OnAppSimLocationEntryChanged);
+		this.houseSimLocationButton.Clicked += new global::System.EventHandler (this.OnHouseSimLocationButtonClicked);
+		this.houseSimLocationEntry.Changed += new global::System.EventHandler (this.OnHouseSimLocationEntryChanged);
 		this.loadScenarioButton.Clicked += new global::System.EventHandler (this.OnLoadScenarioButton);
 		this.startTestButton.Clicked += new global::System.EventHandler (this.OnStartTestButtonClicked);
+		this.endTestButton.Clicked += new global::System.EventHandler (this.OnEndTestButtonClicked);
 	}
 }
