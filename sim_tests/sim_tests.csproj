@@ -53,9 +53,5 @@
       <Name>sim_weather</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\device_commands\device_commands.csproj">
-      <Project>{3FA34053-E64F-4AF5-AB24-8BB7FF660257}</Project>
-      <Name>device_commands</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>

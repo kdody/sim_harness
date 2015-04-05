@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
-using Hats.device_commands;
 using Hats.SimWeather;
 using Hats.Time;
 using NUnit.Framework;
@@ -26,36 +25,7 @@ public class Test
 		Assert.Throws<ArgumentException>(() => frame.setTimeFrame(rate: -1.0));
 	}
 
-	[Test ()]
-	public void CreateDevice()
-	{
-		int houseID = 0;
-		int roomID = 0;
-		HttpClient newClient = new HttpClient();
-		int newID = DeviceCommands.createDevice("devClass", "devType", "devName", houseID, roomID, newClient);
-		Assert.True(newID == 0);
-	}
 
-	[Test ()]
-	public void RemoveDevice()
-	{
-		int houseID = 0;
-		int roomID = 0;
-		HttpClient newClient = new HttpClient();
-		int newID = DeviceCommands.createDevice("devClass", "devType", "devName", houseID, roomID, newClient);
-		bool removed = DeviceCommands.removeDevice(houseID, roomID, newID, newClient);
-		Assert.True(removed == false);
-	}
-	[Test ()]
-	public void ChangeDeviceName()
-	{
-		int houseID = 0;
-		int roomID = 0;
-		HttpClient newClient = new HttpClient();
-		int newID = DeviceCommands.createDevice("devClass", "devType", "devName", houseID, roomID, newClient);
-		bool nameChanged = DeviceCommands.changeDeviceName(houseID, roomID, newID, "devName", newClient);
-		Assert.True(nameChanged == false);
-	}
 
 	public void TimeRate()
 	{
