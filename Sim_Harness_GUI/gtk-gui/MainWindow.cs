@@ -353,7 +353,7 @@ public partial class MainWindow
 		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
 		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
 		this.testSenarioTextview = new global::Gtk.TextView ();
-		this.testSenarioTextview.Buffer.Text = "None Selected \r\n(This will show what is contained in the selected Senario)";
+		this.testSenarioTextview.Buffer.Text = "None Selected \n(This will show what is contained in the selected Senario)";
 		this.testSenarioTextview.WidthRequest = 200;
 		this.testSenarioTextview.CanFocus = true;
 		this.testSenarioTextview.Name = "testSenarioTextview";
