@@ -12,7 +12,7 @@ public partial class MainWindow: Gtk.Window
 	{
 		Console.WriteLine("Build");
 		Build();
-		_simTime = DateTime.Now;
+		_simTime = DateTime.UtcNow;
 		//_simTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hourSpinBox.ValueAsInt, minSpinBox.ValueAsInt, 0);
 
 	}
@@ -154,8 +154,8 @@ public partial class MainWindow: Gtk.Window
 	private string buildStartString()
 	{
 		string jsonString = "{\n\t\"TimeFrame\": {" +
-		                    "\n\t\t\"wall\": \"" + DateTime.Now.ToString("o") + "\"," +
-							"\n\t\t\"sim\": \"" + _simTime.ToString("o") + "\"," +
+		                    "\n\t\t\"wall\": \"" + DateTime.Now.ToString("O") + "\"," +
+							"\n\t\t\"sim\": \"" + _simTime.ToString("O") + "\"," +
 		                    "\n\t\t\"rate\": " + timeFrameSpeedSpinbutton.Text +
 		                    "\n\t}\n}";
 
@@ -172,14 +172,18 @@ public partial class MainWindow: Gtk.Window
 
 	protected void OnSpinbutton1ValueChanged (object sender, EventArgs e)
 	{
-			TimeSpan inputTime = new TimeSpan(hourSpinBox.ValueAsInt + 12, minSpinBox.ValueAsInt, 0);
-			_simTime = _simTime.Date + inputTime;	
+//			TimeSpan inputTime = new TimeSpan(hourSpinBox.ValueAsInt, minSpinBox.ValueAsInt, 0);
+//			_simTime = _simTime.Date + inputTime;	
+		_simTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hourSpinBox.ValueAsInt, minSpinBox.ValueAsInt, 0, DateTimeKind.Local);
 	}
 
 	protected void OnMinSpinBoxValueChanged (object sender, EventArgs e)
 	{
-			TimeSpan inputTime = new TimeSpan(hourSpinBox.ValueAsInt + 12, minSpinBox.ValueAsInt, 0);
-			_simTime = _simTime.Date + inputTime;	
+//			TimeSpan inputTime = new TimeSpan(hourSpinBox.ValueAsInt, minSpinBox.ValueAsInt, 0);
+//			_simTime = _simTime.Date + inputTime;	
+
+		_simTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, hourSpinBox.ValueAsInt, minSpinBox.ValueAsInt, 0, DateTimeKind.Local);
+
 	}
 		
 

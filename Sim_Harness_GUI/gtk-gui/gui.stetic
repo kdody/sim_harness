@@ -459,7 +459,7 @@
                             <property name="StepIncrement">1</property>
                             <property name="ClimbRate">1</property>
                             <property name="Numeric">True</property>
-                            <property name="Value">4</property>
+                            <property name="Value">59</property>
                             <signal name="ValueChanged" handler="OnMinSpinBoxValueChanged" />
                           </widget>
                           <packing>
