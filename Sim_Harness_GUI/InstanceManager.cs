@@ -69,7 +69,9 @@ public class InstanceManager{
 		return output;
 	}
 
-
+	public string tuesdayDemo(){
+		return "";
+	}
 
 
 
@@ -78,6 +80,7 @@ public class InstanceManager{
 	private string startProcess(ref Process p, ref ProcessStartInfo ps) {
 		string output = "";
 		try {
+			
 			p = Process.Start(ps);
 			output = string.Concat(output,"Process started successfully\n");
 		} catch (Exception ex) {
