@@ -14,6 +14,7 @@ public class InstanceManager
 	protected List<SimApp> _apps;
 	protected string _house_path;
 	protected string _app_path;
+
 	public InstanceManager(string scenario, string house_path, string app_path)
 	{
 		_scenario = scenario;

@@ -3,9 +3,28 @@ using Gtk;
 using Sim_Harness_GUI;
 using System.IO;
 
+using System;
+using Gtk;
+//using Hats.Time;
+using Newtonsoft.Json;
+using Sim_Harness_GUI;
+using System.IO;
+
+using System.Web;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Text;
+
+using System.Net.Http;
+using System.Threading.Tasks;
+
 public partial class MainWindow: Gtk.Window
 {
 	protected InstanceManager _instances;
+	protected string urlserver;
 
 	public MainWindow() : base(Gtk.WindowType.Toplevel)
 	{
@@ -161,5 +180,49 @@ public partial class MainWindow: Gtk.Window
 		_instances.Kill();
 		endTestButton.Sensitive = false;
 		startTestButton.Sensitive = true;
+	}
+
+	public void postTimeFrame(string time){
+		/*WebRequest request = WebRequest.CreateHttp("https://posttestserver.com/post.php");
+		request.Method = "POST";
+		request.ContentType = "application/json";
+		byte[] byteArray = Encoding.UTF8.GetBytes(time);
+		Stream data = request.GetRequestStream();
+		request.ContentLength = byteArray.Length; //byteArray
+		data.Write(byteArray, 0, byteArray.Length);
+		data.Close();*/
+
+
+		currentTestTextview.Buffer.Text = "Make request to server:\n\n\t" + time + "\n\n\tServer: http://requestb.in/1ehzgva1\n\n";
+
+		var task = MakeRequest(time);
+		currentTestTextview.Buffer.Text += "\t Waiting...\n\n";
+		task.Wait();
+
+
+		var response = task.Result;
+
+		currentTestTextview.Buffer.Text += "\tResponse: " + response + "\n\n----------------------------------\n\n";
+
+
+		var body = response.Content.ReadAsStringAsync().Result;
+
+
+	}
+	private static async Task<HttpResponseMessage> MakeRequest(string time)
+	{
+		var httpClient = new HttpClient();
+		await httpClient.GetAsync(new Uri("http://requestb.in/1ehzgva1"));
+
+		var stringContent = new StringContent(time);
+
+		var response= await httpClient.PostAsync("http://requestb.in/1ehzgva1", stringContent);	
+		return response;
+	}
+
+	protected void OnServerURLEntryChanged (object sender, EventArgs e)
+	{
+		urlserver = serverURLEntry.Text;
+		//throw new NotImplementedException ();
 	}
 }
